@@ -13,9 +13,9 @@ public class LibraryTest {
 
     @Test
     public void testListAllBooks(){
-        List<String> books = Arrays.asList("The Pragmatic Programmer", "Test Driven Development");
+        List<Book> books = Arrays.asList(new Book("The Pragmatic Programmer"), new Book("Test Driven Development"));
         Library library = new Library(books);
-        List<String> result = library.listAllBooks();
+        List<Book> result = library.listAllBooks();
         assertEquals(result, books);
     }
 
