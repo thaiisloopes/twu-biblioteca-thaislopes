@@ -24,10 +24,25 @@ public class Main {
 
         Menu.Option option = menu.getUserChoiceFromMenu();
 
-        if(option == Menu.Option.LIST_ALL_AVAILABLE_BOOKS) {
-            List<Book> listBook;
-            listBook = library.listAllBooks();
-            System.out.println(formatBookList(listBook));
+        verifyUserOption(option, menu, library);
+    }
+
+    private static void verifyUserOption(Menu.Option option, Menu menu, Library library){
+        switch (option){
+            case LIST_ALL_AVAILABLE_BOOKS:
+                List<Book> listBook;
+                listBook = library.listAllBooks();
+                System.out.println(formatBookList(listBook));
+                System.out.println(menu.showMenu());
+                Menu.Option option2 = menu.getUserChoiceFromMenu();
+                verifyUserOption(option2, menu, library);
+            case EXIT:
+                break;
+            default:
+                System.out.println("Select a valid option!\n");
+                System.out.println(menu.showMenu());
+                Menu.Option option3 = menu.getUserChoiceFromMenu();
+                verifyUserOption(option3, menu, library);
         }
     }
 
