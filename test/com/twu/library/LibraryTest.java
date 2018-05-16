@@ -13,7 +13,10 @@ public class LibraryTest {
 
     @Test
     public void testListAllBooks(){
-        List<Book> books = Arrays.asList(new Book("The Pragmatic Programmer"), new Book("Test Driven Development"));
+        List<Book> books = Arrays.asList(
+                new Book(1, "The Pragmatic Programmer", "Andy Hunt", 1999),
+                new Book(2, "Test Driven Development", "Kent Beck", 2000)
+        );
         Library library = new Library(books);
         List<Book> result = library.listAllBooks();
         assertEquals(result, books);
