@@ -24,25 +24,37 @@ public class Main {
 
         Menu.Option option = menu.getUserChoiceFromMenu();
 
-        verifyUserOption(option, menu, library);
+        verifyUserOption(option, menu, library, books);
     }
 
-    private static void verifyUserOption(Menu.Option option, Menu menu, Library library){
+    private static void verifyUserOption(Menu.Option option, Menu menu, Library library, List<Book> books){
         switch (option){
             case LIST_ALL_AVAILABLE_BOOKS:
                 List<Book> listBook;
-                listBook = library.listAllBooks();
+                listBook = library.listAvailableBooks();
                 System.out.println(formatBookList(listBook));
                 System.out.println(menu.showMenu());
                 Menu.Option option2 = menu.getUserChoiceFromMenu();
-                verifyUserOption(option2, menu, library);
-            case EXIT:
+                verifyUserOption(option2, menu, library, books);
+            case CHECKOUT_ITEM:
+                int bookId;
+                listBook = library.listAvailableBooks();
+                System.out.println(formatBookList(listBook));
+                System.out.println("Please insert the code of the book you want to checkout: ");
+                Scanner read = new Scanner(System.in);
+                bookId = read.nextInt();
+                library.checkoutItem(books, bookId);
+                System.out.println(formatBookList(library.listAvailableBooks()));
+                System.out.println(menu.showMenu());
+                Menu.Option option3 = menu.getUserChoiceFromMenu();
+                verifyUserOption(option3, menu, library, books);
+            case QUIT:
                 break;
             default:
                 System.out.println("Select a valid option!\n");
                 System.out.println(menu.showMenu());
-                Menu.Option option3 = menu.getUserChoiceFromMenu();
-                verifyUserOption(option3, menu, library);
+                Menu.Option option4 = menu.getUserChoiceFromMenu();
+                verifyUserOption(option4, menu, library, books);
         }
     }
 

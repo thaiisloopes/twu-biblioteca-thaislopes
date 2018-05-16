@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Menu {
 
     public enum Option {
-        LIST_ALL_AVAILABLE_BOOKS, EXIT, INVALID_OPTION
+        LIST_ALL_AVAILABLE_BOOKS, CHECKOUT_ITEM, QUIT, INVALID_OPTION
     }
 
     public Menu() {
@@ -17,7 +17,8 @@ public class Menu {
         String menu = (
           "Please select an option: \n" +
           "1 - List all available books \n" +
-          "2 - Exit \n"
+          "2 - Checkout item \n" +
+          "3 - Quit \n"
         );
         return menu;
     }
@@ -33,7 +34,9 @@ public class Menu {
             case 1:
                 return Option.LIST_ALL_AVAILABLE_BOOKS;
             case 2:
-                return Option.EXIT;
+                return Option.CHECKOUT_ITEM;
+            case 3:
+                return Option.QUIT;
             default:
                 return Option.INVALID_OPTION;
         }
