@@ -48,4 +48,15 @@ public class LibraryTest {
         assertEquals(book1.isAvailable(), false);
     }
 
+    @Test
+    public void testReturnBook(){
+        Book book1 = new Book(1, "The Pragmatic Programmer", "Andy Hunt", 1999);
+        List<Book> books = Arrays.asList();
+
+        Library library = new Library(books);
+
+        library.returnBook(1);
+        assertEquals(book1.isAvailable(), true);
+    }
+
 }

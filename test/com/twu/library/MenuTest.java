@@ -10,9 +10,10 @@ public class MenuTest {
        Menu menu = new Menu();
 
        assertEquals(menu.showMenu(), "Please select an option: " +
-               "\n1 - List all available books " +
-               "\n2 - Checkout item " +
-               "\n3 - Quit \n"
+               "\n1 - List All Available Books " +
+               "\n2 - Checkout Book " +
+               "\n3 - Return Book " +
+               "\n4 - Quit \n"
        );
     }
 }

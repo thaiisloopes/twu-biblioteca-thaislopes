@@ -34,14 +34,23 @@ public class Main {
                 listBook = library.listAvailableBooks();
                 System.out.println(formatBookList(listBook));
                 break;
-            case CHECKOUT_ITEM:
-                int bookId;
+            case CHECKOUT_BOOK:
+                int bookCheckoutId;
                 listBook = library.listAvailableBooks();
                 System.out.println(formatBookList(listBook));
                 System.out.println("Please insert the code of the book you want to checkout: ");
                 Scanner read = new Scanner(System.in);
-                bookId = read.nextInt();
-                library.checkoutItem(bookId);
+                bookCheckoutId = read.nextInt();
+                library.checkoutItem(bookCheckoutId);
+                System.out.println("\nAvailable Books: ");
+                System.out.println(formatBookList(library.listAvailableBooks()));
+                break;
+            case RETURN_BOOK:
+                int bookReturnId;
+                System.out.println("Please insert the code of the book you want to return: ");
+                Scanner scan = new Scanner(System.in);
+                bookReturnId = scan.nextInt();
+                library.returnBook(bookReturnId);
                 System.out.println("\nAvailable Books: ");
                 System.out.println(formatBookList(library.listAvailableBooks()));
                 break;

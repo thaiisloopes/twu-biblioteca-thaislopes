@@ -39,6 +39,19 @@ public class Library {
         }
     }
 
+    public void returnBook(Integer bookId){
+        for (int i = 0; i < this.books.size(); i++) {
+            if (bookId-1 == i){
+                if(books.get(i).isAvailable() == false) {
+                    System.out.println("Thank you for returning the book.");
+                    this.books.get(i).setAvailable(true);
+                } else{
+                    System.out.println("That is not a valid book to return.");
+                }
+            }
+        }
+    }
+
 //    public boolean bookIsAvailable(Integer bookId){
 //        return this.books.get(bookId).isAvailable();
 //    }
