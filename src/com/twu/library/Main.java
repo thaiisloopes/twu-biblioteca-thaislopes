@@ -42,6 +42,7 @@ public class Main {
                 Scanner read = new Scanner(System.in);
                 bookId = read.nextInt();
                 library.checkoutItem(bookId);
+                System.out.println("\nAvailable Books: ");
                 System.out.println(formatBookList(library.listAvailableBooks()));
                 break;
             case QUIT:

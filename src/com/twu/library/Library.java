@@ -29,8 +29,17 @@ public class Library {
     public void checkoutItem(Integer bookId){
         for (int i = 0; i < this.books.size(); i++) {
             if (bookId-1 == i){
-                this.books.get(i).setAvailable(false);
+                if(books.get(i).isAvailable() == true) {
+                    System.out.println("Thank you! Enjoy the book");
+                    this.books.get(i).setAvailable(false);
+                } else{
+                    System.out.println("That book is not available.");
+                }
             }
         }
     }
+
+//    public boolean bookIsAvailable(Integer bookId){
+//        return this.books.get(bookId).isAvailable();
+//    }
 }
