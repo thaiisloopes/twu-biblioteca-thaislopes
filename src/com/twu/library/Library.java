@@ -26,10 +26,10 @@ public class Library {
     }
 
 
-    public void checkoutItem(List<Book> books, Integer bookId){
-        for (int i = 0; i < books.size(); i++) {
+    public void checkoutItem(Integer bookId){
+        for (int i = 0; i < this.books.size(); i++) {
             if (bookId-1 == i){
-                books.get(i).setAvailable(false);
+                this.books.get(i).setAvailable(false);
             }
         }
     }

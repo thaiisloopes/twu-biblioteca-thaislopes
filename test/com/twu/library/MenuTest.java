@@ -11,7 +11,7 @@ public class MenuTest {
 
        assertEquals(menu.showMenu(), "Please select an option: " +
                "\n1 - List all available books " +
-               "\n2 - Checkout item" +
+               "\n2 - Checkout item " +
                "\n3 - Quit \n"
        );
     }

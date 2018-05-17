@@ -22,16 +22,30 @@ public class LibraryTest {
         assertEquals(result, books);
     }
 
+
     @Test
-    public void testAvailableBooksList(){
-        List<Book> books = Arrays.asList(
-                new Book(1, "The Pragmatic Programmer", "Andy Hunt", 1999),
-                new Book(2, "Test Driven Development", "Kent Beck", 2000)
-        );
-        books.get(1).setAvailable(false);
+    public void testListAvailableBooks(){
+        Book book1 = new Book(1, "The Pragmatic Programmer", "Andy Hunt", 1999);
+        Book book2 = new Book(2, "Test Driven Development", "Kent Beck", 2000);
+
+        List<Book> books = Arrays.asList(book1, book2);
+
         Library library = new Library(books);
+        library.checkoutItem(2);
         List <Book> result = library.listAvailableBooks();
-        assertEquals(result.toString(), "1 - The Pragmatic Programmer, Andy Hunt, 1999");
+        assertEquals(result.size(), 1);
+        assertEquals(result.get(0), book1);
+    }
+
+    @Test
+    public void testCheckoutItem(){
+        Book book1 = new Book(1, "The Pragmatic Programmer", "Andy Hunt", 1999);
+        List<Book> books = Arrays.asList(book1);
+
+        Library library = new Library(books);
+        library.checkoutItem(1);
+
+        assertEquals(book1.isAvailable(), false);
     }
 
 }
