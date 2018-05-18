@@ -10,54 +10,54 @@ public class Main {
         System.out.println("   Welcome to THE BANGALORE PUBLIC LIBRARY ");
         System.out.println("*********************************************\n");
 
-        List<Book> books = Arrays.asList(
-                new Book(1, "The Pragmatic Programmer", "Andy Hunt", 1999),
-                new Book(2, "Test Driven Development", "Kent Beck", 2000),
-                new Book (3, "Java Web", "Vishal Layka", 2005)
+        List<Item> items = Arrays.asList(
+                new Book(1,1999, "The Pragmatic Programmer", "Andy Hunt"),
+                new Book(2,2000, "Test Driven Development", "Kent Beck"),
+                new Movie (3,1998, "Titanic", 9, "James Cameron")
         );
 
-        Library library = new Library(books);
+        Library library = new Library(items);
 
 
         Menu menu = new Menu();
 
-        processUserOption(menu, library, books);
+        processUserOption(menu, library, items);
     }
 
-    private static void processUserOption(Menu menu, Library library, List<Book> books){
+    private static void processUserOption(Menu menu, Library library, List<Item> items){
         System.out.println(menu.showMenu());
         Menu.Option option = menu.getUserChoiceFromMenu();
 
         switch (option){
-            case LIST_ALL_AVAILABLE_BOOKS:
-                List<Book> listBook;
-                listBook = library.listAvailableBooks();
-                System.out.println(formatBookList(listBook));
+            case LIST_ALL_AVAILABLE_ITEMS:
+                List<Item> listItem;
+                listItem = library.listAvailableItems();
+                System.out.println(formatItemList(listItem));
                 break;
-            case CHECKOUT_BOOK:
-                int bookCheckoutId;
-                listBook = library.listAvailableBooks();
-                System.out.println(formatBookList(listBook));
-                System.out.println("Please insert the code of the book you want to checkout: ");
+            case CHECKOUT_ITEM:
+                int itemCheckoutId;
+                listItem = library.listAvailableItems();
+                System.out.println(formatItemList(listItem));
+                System.out.println("Please insert the code of the item you want to checkout: ");
                 Scanner read = new Scanner(System.in);
-                bookCheckoutId = read.nextInt();
-                library.checkoutItem(bookCheckoutId);
-                System.out.println("\nAvailable Books: ");
-                System.out.println(formatBookList(library.listAvailableBooks()));
+                itemCheckoutId = read.nextInt();
+                library.checkoutItem(itemCheckoutId);
+                System.out.println("\nAvailable Items: ");
+                System.out.println(formatItemList(library.listAvailableItems()));
                 break;
-            case RETURN_BOOK:
+            case RETURN_ITEM:
                 int bookReturnId;
                 System.out.println("Please insert the code of the book you want to return: ");
                 Scanner scan = new Scanner(System.in);
                 bookReturnId = scan.nextInt();
-                Boolean bookReturned = library.returnBook(bookReturnId);
+                Boolean bookReturned = library.returnItem(bookReturnId);
                 if(bookReturned){
-                    System.out.println("Thank you for returning the book.");
+                    System.out.println("Thank you for returning the item.");
                 } else{
-                    System.out.println("That is not a valid book to return.");
+                    System.out.println("That is not a valid item to return.");
                 }
-                System.out.println("\nAvailable Books: ");
-                System.out.println(formatBookList(library.listAvailableBooks()));
+                System.out.println("\nAvailable Items: ");
+                System.out.println(formatItemList(library.listAvailableItems()));
                 break;
             case QUIT:
                 return;
@@ -65,14 +65,14 @@ public class Main {
                 System.out.println("Select a valid option!\n");
                 break;
         }
-        processUserOption(menu, library, books);
+        processUserOption(menu, library, items);
     }
 
-    private static String formatBookList(List<Book> books) {
-        String bookList = "";
-        for (int i = 0; i < books.size(); i++) {
-            bookList += books.get(i).toString() + "\n";
+    private static String formatItemList(List<Item> items) {
+        String itemList = "";
+        for (int i = 0; i < items.size(); i++) {
+            itemList += items.get(i).toString() + "\n";
         }
-        return bookList;
+        return itemList;
     }
 }

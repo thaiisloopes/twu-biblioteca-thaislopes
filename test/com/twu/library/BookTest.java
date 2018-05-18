@@ -10,8 +10,8 @@ import static junit.framework.TestCase.assertEquals;
 public class BookTest {
     @Test
     public void testToString(){
-        Book book = new Book(1,"The Pragmatic Programmer", "Andy Hunt", 1999);
+        Book book = new Book(1,1999, "The Pragmatic Programmer", "Andy Hunt");
 
-        assertEquals(book.toString(),"1 - The Pragmatic Programmer, Andy Hunt, 1999");
+        assertEquals(book.toString(),"1 - The Pragmatic Programmer, Andy Hunt, 1999 - (BOOK)");
     }
 }

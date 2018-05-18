@@ -1,35 +1,15 @@
 package com.twu.library;
 
-public class Book {
-    private String name, author;
-    private Integer id, yearPublished;
-    private boolean available;
+public class Book extends Item{
+    private String author;
 
-    public Book(Integer id, String name, String author, Integer yearPublished) {
-        this.id = id;
-        this.name = name;
+    public Book(Integer id, Integer yearPublished, String name, String author) {
+        super(id, yearPublished, name);
         this.author = author;
-        this.yearPublished = yearPublished;
-        this.available = true;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
+        this.type = Type.BOOK;
     }
 
     public String toString() {
-        return this.id + " - " + this.name + ", " + this.author + ", " + this.yearPublished;
+        return this.id + " - " + this.name + ", " + this.author + ", " + this.yearPublished + " - (" + this.type + ")";
     }
 }

@@ -4,45 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    private List<Book> books;
+    private List<Item> items;
 
-    public Library(List<Book> books) {
-        this.books = books;
+    public Library(List<Item> items) {
+        this.items = items;
     }
 
-    public List<Book> listAllBooks() {
-        return books;
+    public List<Item> listAllItems() {
+        return items;
     }
 
-    public List<Book> listAvailableBooks() {
-        List<Book> availableBooks = new ArrayList<Book>();
-        for (int i = 0; i < books.size() ; i++) {
-            if(books.get(i).isAvailable() == true){
-                availableBooks.add(books.get(i));
+    public List<Item> listAvailableItems() {
+        List<Item> availableItems = new ArrayList<Item>();
+        for (int i = 0; i < items.size() ; i++) {
+            if(items.get(i).isAvailable() == true){
+                availableItems.add(items.get(i));
             }
         }
-        return availableBooks;
+        return availableItems;
     }
 
 
-    public void checkoutItem(Integer bookId){
-        for (int i = 0; i < this.books.size(); i++) {
-            if (bookId-1 == i){
-                if(books.get(i).isAvailable() == true) {
-                    System.out.println("Thank you! Enjoy the book");
-                    this.books.get(i).setAvailable(false);
+    public void checkoutItem(Integer itemId){
+        for (int i = 0; i < this.items.size(); i++) {
+            if (itemId-1 == i){
+                if(items.get(i).isAvailable() == true) {
+                    System.out.println("Thank you! Enjoy the item!");
+                    this.items.get(i).setAvailable(false);
                 } else{
-                    System.out.println("That book is not available.");
+                    System.out.println("That item is not available.");
                 }
             }
         }
     }
 
-    public boolean returnBook(Integer bookId){
-        for (int i = 0; i < this.books.size(); i++) {
-            if (bookId-1 == i){
-                if(books.get(i).isAvailable() == false) {
-                    this.books.get(i).setAvailable(true);
+    public boolean returnItem(Integer itemId){
+        for (int i = 0; i < this.items.size(); i++) {
+            if (itemId-1 == i){
+                if(items.get(i).isAvailable() == false) {
+                    this.items.get(i).setAvailable(true);
                     return true;
                 } else{
                     return false;

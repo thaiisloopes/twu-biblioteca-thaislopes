@@ -1,18 +1,18 @@
 package com.twu.library;
 
-public class Movie {
-    private Integer id, year, movieRating;
-    private String name, director;
+public class Movie extends Item {
+    private Integer movieRating;
+    private String director;
 
-    public Movie(Integer id, String name, Integer year, String director, Integer movieRating) {
-        this.id = id;
-        this.name= name;
-        this.year = year;
-        this.director = director;
+
+    public Movie(Integer id, Integer yearPublished, String name, Integer movieRating, String director) {
+        super(id, yearPublished, name);
         this.movieRating = movieRating;
+        this.director = director;
+        this.type = Type.MOVIE;
     }
 
     public String toString() {
-        return this.id + " - " + this.name + ", " + this.year + ", " + this.director + ", " + this.movieRating;
+        return this.id + " - " + this.name + ", " + this.yearPublished + ", " + this.director + ", " + this.movieRating + " - (" + this.type + ")";
     }
 }
