@@ -50,7 +50,12 @@ public class Main {
                 System.out.println("Please insert the code of the book you want to return: ");
                 Scanner scan = new Scanner(System.in);
                 bookReturnId = scan.nextInt();
-                library.returnBook(bookReturnId);
+                Boolean bookReturned = library.returnBook(bookReturnId);
+                if(bookReturned){
+                    System.out.println("Thank you for returning the book.");
+                } else{
+                    System.out.println("That is not a valid book to return.");
+                }
                 System.out.println("\nAvailable Books: ");
                 System.out.println(formatBookList(library.listAvailableBooks()));
                 break;

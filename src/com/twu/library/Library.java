@@ -2,7 +2,6 @@ package com.twu.library;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Library {
     private List<Book> books;
@@ -39,20 +38,17 @@ public class Library {
         }
     }
 
-    public void returnBook(Integer bookId){
+    public boolean returnBook(Integer bookId){
         for (int i = 0; i < this.books.size(); i++) {
             if (bookId-1 == i){
                 if(books.get(i).isAvailable() == false) {
-                    System.out.println("Thank you for returning the book.");
                     this.books.get(i).setAvailable(true);
+                    return true;
                 } else{
-                    System.out.println("That is not a valid book to return.");
+                    return false;
                 }
             }
         }
+        return false;
     }
-
-//    public boolean bookIsAvailable(Integer bookId){
-//        return this.books.get(bookId).isAvailable();
-//    }
 }
