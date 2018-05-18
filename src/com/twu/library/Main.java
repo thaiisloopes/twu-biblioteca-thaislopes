@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        String libraryNumber, password;
+
         System.out.println("*********************************************");
         System.out.println("   Welcome to THE BANGALORE PUBLIC LIBRARY ");
         System.out.println("*********************************************\n");
@@ -16,8 +18,26 @@ public class Main {
                 new Movie (3,1998, "Titanic", 9, "James Cameron")
         );
 
-        Library library = new Library(items);
+        List<User> users = Arrays.asList(
+                new User("999-8888", "123456"),
+                new User("999-0000", "123")
+        );
 
+        Library library = new Library(items, users);
+
+        Scanner read = new Scanner(System.in);
+        System.out.println("Please insert your Library Number: ");
+        libraryNumber = read.next();
+
+        System.out.println("\nPlease insert your Password: ");
+        password = read.next();
+
+        if(library.login(libraryNumber, password) == false){
+            System.out.println("\nLogin or password incorrect. Please try again.");
+            return;
+        } else{
+            System.out.println("\nLogin was done with success!");
+    }
 
         Menu menu = new Menu();
 

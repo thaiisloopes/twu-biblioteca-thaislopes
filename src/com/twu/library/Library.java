@@ -5,9 +5,12 @@ import java.util.List;
 
 public class Library {
     private List<Item> items;
+    private List<User> users;
+    private User loggedUser;
 
-    public Library(List<Item> items) {
+    public Library(List<Item> items, List<User> users) {
         this.items = items;
+        this.users = users;
     }
 
     public List<Item> listAllItems() {
@@ -47,6 +50,16 @@ public class Library {
                 } else{
                     return false;
                 }
+            }
+        }
+        return false;
+    }
+
+    public boolean login(String libraryNumber, String password){
+        for (int i = 0; i < users.size(); i++) {
+            if((users.get(i).getLibraryNumber().equals(libraryNumber)) && (users.get(i).getPassword().equals(password))) {
+                this.loggedUser = users.get(i);
+                return true;
             }
         }
         return false;

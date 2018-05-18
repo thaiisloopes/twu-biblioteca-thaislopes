@@ -19,7 +19,11 @@ public class LibraryTest {
                 new Movie(3,1998, "Titanic", 9, "James Cameron"),
                 new Movie(4,2001, "White Chicks",10, "Keenen Ivory Wayans" )
         );
-        Library library = new Library(items);
+        User user1 = new User("888-9999", "123456");
+        User user2 = new User("999-0000","654321");
+        List<User> users = Arrays.asList(user1, user2);
+
+        Library library = new Library(items, users);
         List<Item> result = library.listAllItems();
         assertEquals(result, items);
     }
@@ -35,7 +39,12 @@ public class LibraryTest {
 
         List<Item> items = Arrays.asList(book1, book2, movie1, movie2);
 
-        Library library = new Library(items);
+        User user1 = new User("888-9999", "123456");
+        User user2 = new User("999-0000","654321");
+
+        List<User> users = Arrays.asList(user1, user2);
+
+        Library library = new Library(items, users);
         library.checkoutItem(2);
         List <Item> result = library.listAvailableItems();
         assertEquals(result.size(), 3);
@@ -47,7 +56,12 @@ public class LibraryTest {
         Movie movie1 = new Movie(3,1998, "Titanic", 9, "James Cameron");
         List<Item> items = Arrays.asList(book1, movie1);
 
-        Library library = new Library(items);
+        User user1 = new User("888-9999", "123456");
+        User user2 = new User("999-0000","654321");
+
+        List<User> users = Arrays.asList(user1, user2);
+
+        Library library = new Library(items, users);
         library.checkoutItem(1);
 
         assertEquals(book1.isAvailable(), false);
@@ -59,10 +73,46 @@ public class LibraryTest {
         Movie movie1 = new Movie(3,1998, "Titanic", 9, "James Cameron");
         List<Item> items = Arrays.asList();
 
-        Library library = new Library(items);
+        User user1 = new User("888-9999", "123456");
+        User user2 = new User("999-0000","654321");
+
+        List<User> users = Arrays.asList(user1, user2);
+
+        Library library = new Library(items, users);
 
         library.returnItem(1);
         assertEquals(book1.isAvailable(), true);
+    }
+
+    @Test
+    public void testLoginSuccess(){
+        Boolean login;
+
+        User user1 = new User("888-9999", "123456");
+        User user2 = new User("999-0000","654321");
+        List<User> users = Arrays.asList(user1, user2);
+        List<Item> items = Arrays.asList();
+
+
+        Library library = new Library(items, users);
+        login = library.login("888-9999", "123456");
+        assertEquals(login, true);
+    }
+
+    @Test
+    public void testLoginFailure(){
+        Boolean login;
+
+        User user1 = new User("888-9999", "123456");
+        User user2 = new User("999-0000","654321");
+        List<User> users = Arrays.asList(user1, user2);
+        List<Item> items = Arrays.asList();
+
+
+        Library library = new Library(items, users);
+        login = library.login("888-0000", "123456");
+        assertEquals(login, false);
+
     }
 
 }
