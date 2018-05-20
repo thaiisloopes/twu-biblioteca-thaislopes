@@ -19,8 +19,8 @@ public class Main {
         );
 
         List<User> users = Arrays.asList(
-                new User("999-8888", "123456"),
-                new User("999-0000", "123")
+                new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123"),
+                new User("Thaís2","tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321")
         );
 
         Library library = new Library(items, users);
@@ -49,6 +49,9 @@ public class Main {
         Menu.Option option = menu.getUserChoiceFromMenu();
 
         switch (option){
+            case LIST_CUSTOMERS_INFORMATION:
+                System.out.println(library.getLoggedUser().listCustomersInformation());
+                break;
             case LIST_ALL_AVAILABLE_ITEMS:
                 List<Item> listItem;
                 listItem = library.listAvailableItems();

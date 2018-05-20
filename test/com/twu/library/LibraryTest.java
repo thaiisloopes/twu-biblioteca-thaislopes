@@ -19,8 +19,8 @@ public class LibraryTest {
                 new Movie(3,1998, "Titanic", 9, "James Cameron"),
                 new Movie(4,2001, "White Chicks",10, "Keenen Ivory Wayans" )
         );
-        User user1 = new User("888-9999", "123456");
-        User user2 = new User("999-0000","654321");
+        User user1 = new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123");
+        User user2 = new User("Thaís2", "tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321");
         List<User> users = Arrays.asList(user1, user2);
 
         Library library = new Library(items, users);
@@ -39,8 +39,8 @@ public class LibraryTest {
 
         List<Item> items = Arrays.asList(book1, book2, movie1, movie2);
 
-        User user1 = new User("888-9999", "123456");
-        User user2 = new User("999-0000","654321");
+        User user1 = new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123");
+        User user2 = new User("Thaís2", "tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321");
 
         List<User> users = Arrays.asList(user1, user2);
 
@@ -56,8 +56,8 @@ public class LibraryTest {
         Movie movie1 = new Movie(3,1998, "Titanic", 9, "James Cameron");
         List<Item> items = Arrays.asList(book1, movie1);
 
-        User user1 = new User("888-9999", "123456");
-        User user2 = new User("999-0000","654321");
+        User user1 = new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123");
+        User user2 = new User("Thaís2", "tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321");
 
         List<User> users = Arrays.asList(user1, user2);
 
@@ -73,8 +73,8 @@ public class LibraryTest {
         Movie movie1 = new Movie(3,1998, "Titanic", 9, "James Cameron");
         List<Item> items = Arrays.asList();
 
-        User user1 = new User("888-9999", "123456");
-        User user2 = new User("999-0000","654321");
+        User user1 = new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123");
+        User user2 = new User("Thaís2", "tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321");
 
         List<User> users = Arrays.asList(user1, user2);
 
@@ -88,14 +88,14 @@ public class LibraryTest {
     public void testLoginSuccess(){
         Boolean login;
 
-        User user1 = new User("888-9999", "123456");
-        User user2 = new User("999-0000","654321");
+        User user1 = new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123");
+        User user2 = new User("Thaís2", "tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321");
         List<User> users = Arrays.asList(user1, user2);
         List<Item> items = Arrays.asList();
 
 
         Library library = new Library(items, users);
-        login = library.login("888-9999", "123456");
+        login = library.login("999-8888", "123");
         assertEquals(login, true);
     }
 
@@ -103,8 +103,8 @@ public class LibraryTest {
     public void testLoginFailure(){
         Boolean login;
 
-        User user1 = new User("888-9999", "123456");
-        User user2 = new User("999-0000","654321");
+        User user1 = new User("Thaís", "tlnunes@thoughworks.com", "552299887766", "999-8888", "123");
+        User user2 = new User("Thaís2", "tlnunes2@thoughtworks.com", "5522987654321","999-0000", "321");
         List<User> users = Arrays.asList(user1, user2);
         List<Item> items = Arrays.asList();
 

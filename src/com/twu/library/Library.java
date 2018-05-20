@@ -13,6 +13,10 @@ public class Library {
         this.users = users;
     }
 
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
     public List<Item> listAllItems() {
         return items;
     }
